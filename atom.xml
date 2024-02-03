@@ -168,9 +168,9 @@
     
     <category term="数论" scheme="http://example.com/tags/%E6%95%B0%E8%AE%BA/"/>
     
-    <category term="模板" scheme="http://example.com/tags/%E6%A8%A1%E6%9D%BF/"/>
-    
     <category term="欧拉函数" scheme="http://example.com/tags/%E6%AC%A7%E6%8B%89%E5%87%BD%E6%95%B0/"/>
+    
+    <category term="模板" scheme="http://example.com/tags/%E6%A8%A1%E6%9D%BF/"/>
     
   </entry>
   
