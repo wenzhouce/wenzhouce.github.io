@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2024-02-02T14:14:24.967Z</updated>
+  <updated>2024-02-03T05:47:43.619Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -15,6 +15,36 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Devu和鲜花</title>
+    <link href="http://example.com/2024/02/03/Devu%E5%92%8C%E9%B2%9C%E8%8A%B1/"/>
+    <id>http://example.com/2024/02/03/Devu%E5%92%8C%E9%B2%9C%E8%8A%B1/</id>
+    <published>2024-02-03T05:37:32.000Z</published>
+    <updated>2024-02-03T05:47:43.619Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><p>Devu 有 N 个盒子，第 i 个盒子中有 Ai 枝花。</p><p>同一个盒子内的花颜色相同，不同盒子内的花颜色不同。</p><p>Devu 要从这些盒子中选出 M 枝花组成一束，求共有多少种方案。</p><p>若两束花每种颜色的花的数量都相同，则认为这两束花是相同的方案。</p><p>结果需对 1e9+7 取模之后方可输出。</p><p>1≤N≤20，0≤M≤1e14，0≤Ai≤1e12</p><h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">隔板法：N的范围很小，M的范围很大，那么可以考虑用隔板法，在M+N-1个格子里插入N-1个隔板，即将M分成N类</span></span><br><span class="line"><span class="comment">容斥原理：因为每个盒子不是无数枝花，所以可以考虑用全部的排法-不满足条件的排法</span></span><br><span class="line"><span class="comment">1.全部的排法即C(M+N-1,N-1)</span></span><br><span class="line"><span class="comment">2.不满足的排法=(S1∪S2…∪SN)</span></span><br><span class="line"><span class="comment">3.Si表示所选的排法中这种花的数量超过了盒子中花的总数，那可知至少取了xi+1枝花，那么隔板法就应该变为从M+N-1-(xi+1)中插入N-1个隔板，即C(M+N-1-xi-1,N-1)</span></span><br><span class="line"><span class="comment">4.根据容斥原理奇数个加，偶数个减，就可以得到不满足的排法的总数</span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure><h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="meta">#<span class="keyword">define</span> int long long</span></span><br><span class="line"><span class="type">const</span> <span class="type">int</span> mod=<span class="number">1e9</span>+<span class="number">7</span>;</span><br><span class="line"><span class="type">int</span> p[<span class="number">30</span>];</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">qmi</span><span class="params">(<span class="type">int</span> a,<span class="type">int</span> b)</span></span>&#123;</span><br><span class="line">    <span class="type">int</span> res=<span class="number">1</span>;</span><br><span class="line">    <span class="keyword">while</span>(b)&#123;</span><br><span class="line">        <span class="keyword">if</span>(b&amp;<span class="number">1</span>)res=res*a%mod;</span><br><span class="line">        a=a*a%mod;</span><br><span class="line">        b&gt;&gt;=<span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> res;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">C</span><span class="params">(<span class="type">int</span> a,<span class="type">int</span> b)</span></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(a&lt;b)<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    <span class="type">int</span> d=<span class="number">1</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=a;i&gt;a-b;i--)d=i%mod*d%mod;</span><br><span class="line">    <span class="keyword">return</span> d;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">signed</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    ios::<span class="built_in">sync_with_stdio</span>(<span class="literal">false</span>),cin.<span class="built_in">tie</span>(<span class="number">0</span>),cout.<span class="built_in">tie</span>(<span class="number">0</span>);</span><br><span class="line">    <span class="type">int</span> n,m;</span><br><span class="line">    cin&gt;&gt;n&gt;&gt;m;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;n;i++)cin&gt;&gt;p[i];</span><br><span class="line">    <span class="type">int</span> d=<span class="number">1</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;n;i++)d=d*i%mod;</span><br><span class="line">    d=<span class="built_in">qmi</span>(d,mod<span class="number">-2</span>);</span><br><span class="line">    <span class="type">int</span> ans=d*<span class="built_in">C</span>(m+n<span class="number">-1</span>,n<span class="number">-1</span>)%mod;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;(<span class="number">1</span>&lt;&lt;n);i++)&#123;</span><br><span class="line">        <span class="type">int</span> x=m+n<span class="number">-1</span>;</span><br><span class="line">        <span class="type">int</span> y=<span class="number">1</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> j=<span class="number">0</span>;j&lt;n;j++)&#123;</span><br><span class="line">            <span class="keyword">if</span>((i&gt;&gt;j)&amp;<span class="number">1</span>)&#123;</span><br><span class="line">                y*=<span class="number">-1</span>;</span><br><span class="line">                x-=p[j]+<span class="number">1</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        ans=(ans+<span class="built_in">C</span>(x,n<span class="number">-1</span>)*d%mod*y)%mod;</span><br><span class="line">    &#125;</span><br><span class="line">    cout&lt;&lt;(ans+mod)%mod;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h2 id=&quot;题目&quot;&gt;&lt;a href=&quot;#题目&quot; class=&quot;headerlink&quot; title=&quot;题目&quot;&gt;&lt;/a&gt;题目&lt;/h2&gt;&lt;p&gt;Devu 有 N 个盒子，第 i 个盒子中有 Ai 枝花。&lt;/p&gt;
+&lt;p&gt;同一个盒子内的花颜色相同，不同盒子内的花颜色不同。&lt;/p&gt;
+&lt;p&gt;</summary>
+      
+    
+    
+    
+    
+    <category term="数论" scheme="http://example.com/tags/%E6%95%B0%E8%AE%BA/"/>
+    
+    <category term="容斥原理" scheme="http://example.com/tags/%E5%AE%B9%E6%96%A5%E5%8E%9F%E7%90%86/"/>
+    
+    <category term="排列组合" scheme="http://example.com/tags/%E6%8E%92%E5%88%97%E7%BB%84%E5%90%88/"/>
+    
+    <category term="隔板法" scheme="http://example.com/tags/%E9%9A%94%E6%9D%BF%E6%B3%95/"/>
+    
+  </entry>
   
   <entry>
     <title>能被整除的数</title>
@@ -37,9 +67,9 @@
     
     <category term="数论" scheme="http://example.com/tags/%E6%95%B0%E8%AE%BA/"/>
     
-    <category term="模板" scheme="http://example.com/tags/%E6%A8%A1%E6%9D%BF/"/>
-    
     <category term="容斥原理" scheme="http://example.com/tags/%E5%AE%B9%E6%96%A5%E5%8E%9F%E7%90%86/"/>
+    
+    <category term="模板" scheme="http://example.com/tags/%E6%A8%A1%E6%9D%BF/"/>
     
   </entry>
   
