@@ -324,28 +324,4 @@
     
   </entry>
   
-  <entry>
-    <title>目录</title>
-    <link href="http://example.com/2024/01/31/%E7%9B%AE%E5%BD%95/"/>
-    <id>http://example.com/2024/01/31/%E7%9B%AE%E5%BD%95/</id>
-    <published>2024-01-31T09:52:41.000Z</published>
-    <updated>2024-02-03T09:45:55.750Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="动态规划"><a href="#动态规划" class="headerlink" title="动态规划"></a>动态规划</h2><p>动态规划基础</p><p>记忆化搜索</p><p>背包DP</p><p>区间DP</p><p>DAG上的DP</p><p>树形DP</p><p>状压DP</p><p>数位DP</p><p>插头DP</p><p>计数DP</p><p>动态DP</p><p>概率DP</p><p>DP优化</p><h2 id="图论"><a href="#图论" class="headerlink" title="图论"></a>图论</h2><p><a href="https://oi-wiki.org/graph/">图论部分简介</a></p><p><a href="https://oi-wiki.org/graph/concept/">图论相关概念</a></p><p><a href="https://oi-wiki.org/graph/save/">图的存储</a></p><p><a href="https://oi-wiki.org/graph/dfs/">DFS（图论）</a></p><p><a href="https://oi-wiki.org/graph/bfs/">BFS（图论）</a></p><p>树上问题</p><p><a href="https://oi-wiki.org/graph/matrix-tree/">矩阵树定理</a></p><p><a href="https://oi-wiki.org/graph/dag/">有向无环图</a></p><p><a href="https://oi-wiki.org/graph/topo/">拓扑排序</a></p><p><a href="https://oi-wiki.org/graph/mst/">最小生成树</a></p><p><a href="https://oi-wiki.org/graph/steiner-tree/">斯坦纳树</a></p><p><a href="https://oi-wiki.org/graph/dmst/">最小树形图</a></p><p><a href="https://oi-wiki.org/graph/mdst/">最小直径生成树</a></p><p><a href="https://oi-wiki.org/graph/shortest-path/">最短路</a></p><p><a href="https://oi-wiki.org/graph/node/">拆点</a></p><p><a href="https://oi-wiki.org/graph/diff-constraints/">差分约束</a></p><p><a href="https://oi-wiki.org/graph/kth-path/">k 短路</a></p><p><a href="https://oi-wiki.org/graph/mod-shortest-path/">同余最短路</a></p><p>连通性相关</p><p><a href="https://oi-wiki.org/graph/rings-count/">环计数问题</a></p><p><a href="https://oi-wiki.org/graph/2-sat/">2-SAT</a></p><p><a href="https://oi-wiki.org/graph/euler/">欧拉图</a></p><p><a href="https://oi-wiki.org/graph/hamilton/">哈密顿图</a></p><p><a href="https://oi-wiki.org/graph/bi-graph/">二分图</a></p><p><a href="https://oi-wiki.org/graph/min-cycle/">最小环</a></p><p><a href="https://oi-wiki.org/graph/planar/">平面图</a></p><p><a href="https://oi-wiki.org/graph/color/">图的着色</a></p><p>网络流</p><p><a href="https://oi-wiki.org/graph/stoer-wagner/">Stoer–Wagner 算法</a></p><p>图的匹配</p><p><a href="https://oi-wiki.org/graph/prufer/">Prüfer 序列</a></p><p><a href="https://oi-wiki.org/graph/lgv/">LGV 引理</a></p><p><a href="https://oi-wiki.org/graph/chord/">弦图</a></p><p><a href="https://oi-wiki.org/graph/max-clique/">最大团搜索算法</a></p><p><a href="https://oi-wiki.org/graph/dominator-tree/">支配树</a></p><p><a href="https://oi-wiki.org/graph/graph-random-walk/">图上随机游走</a></p><h2 id="数论基础"><a href="#数论基础" class="headerlink" title="数论基础"></a>数论基础</h2><p>GCD、LCM</p><p>快速幂</p><p>矩阵快速幂</p><p>高斯消元</p><p>素数筛</p><p>唯一分解定理、约数定理</p><p>反素数</p><h2 id="数论进阶"><a href="#数论进阶" class="headerlink" title="数论进阶"></a>数论进阶</h2><p>费马小定理</p><p>欧拉定理</p><p>欧拉函数</p><p>欧拉降幂</p><p>威尔逊定理</p><p>中国剩余定理</p><p>扩展中国剩余定理</p><p>裴蜀定理</p><p>康托定理</p><p>康托展开</p><p>线性基</p><p>整除分块</p><h2 id="排列组合"><a href="#排列组合" class="headerlink" title="排列组合"></a>排列组合</h2><p>排列组合基础</p><p>Lucas定理</p><h2 id="博弈论"><a href="#博弈论" class="headerlink" title="博弈论"></a>博弈论</h2><p>尼姆博弈</p><p>反尼姆博弈</p><p>Nim-K博弈</p><p>SG函数</p>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;h2 id=&quot;动态规划&quot;&gt;&lt;a href=&quot;#动态规划&quot; class=&quot;headerlink&quot; title=&quot;动态规划&quot;&gt;&lt;/a&gt;动态规划&lt;/h2&gt;&lt;p&gt;动态规划基础&lt;/p&gt;
-&lt;p&gt;记忆化搜索&lt;/p&gt;
-&lt;p&gt;背包DP&lt;/p&gt;
-&lt;p&gt;区间DP&lt;/p&gt;
-&lt;p&gt;DAG上的DP&lt;/p&gt;</summary>
-      
-    
-    
-    
-    
-  </entry>
-  
 </feed>
